@@ -1,5 +1,7 @@
 package com.fish.hongma.fish.service;
 
+
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,11 +13,11 @@ import lombok.NoArgsConstructor;
 public class FishInfoVO {
 
 	private String fshlcNm;
+	private String latitude;
+	private String longitude;
 	private String fshlcType;
 	private String rndmadr;
 	private String lnmadr;
-	private String latitude;
-	private String longitude;
 	private String fshlcPhoneNumber;
 	private String waterAr;
 	private String kdfsh;

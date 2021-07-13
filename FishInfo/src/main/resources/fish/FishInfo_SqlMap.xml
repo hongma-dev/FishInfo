@@ -30,4 +30,33 @@
 			REFERENCE_DATE
 		FROM TBL_FSHLC
 	</select>
+	
+	<select id="getFishInfo" 
+		parameterType="com.fish.hongma.fish.service.FishInfoVO"
+		resultType="com.fish.hongma.fish.service.FishInfoVO">
+		SELECT
+			FSHLC_NM,
+			FSHLC_TYPE,
+			RDNMADR,
+			LNMADR,
+			LATITUDE,
+			LONGITUDE,
+			FSHLC_PHONE_NUMBER,
+			WATER_AR,
+			KDFSH,
+			ACEPTNC_CO,
+			WTRC_FCLTY_TYPE,
+			USE_CHARGE,
+			MAIN_POINT,
+			SAFENTL,
+			CVNTL,
+			CFR_TRRSRT,
+			PHONE_NUMBER,
+			INSTITUTION_NM,
+			REFERENCE_DATE
+		FROM TBL_FSHLC
+		WHERE FSHLC_NM = #{fshlcNm}
+			AND LATITUDE = #{latitude}
+			AND LONGITUDE = #{longitude}
+	</select>
 </mapper>

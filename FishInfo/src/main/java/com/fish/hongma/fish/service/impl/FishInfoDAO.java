@@ -10,4 +10,6 @@ import com.fish.hongma.fish.service.FishInfoVO;
 public interface FishInfoDAO {
 	
 	public List<FishInfoVO> getFishInfos();
+	
+	public FishInfoVO getFishInfo(FishInfoVO vo);
 }

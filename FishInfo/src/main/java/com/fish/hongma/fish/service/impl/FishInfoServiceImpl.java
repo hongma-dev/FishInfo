@@ -20,12 +20,19 @@ public class FishInfoServiceImpl implements FishInfoService{
 	public List<FishInfoVO> getFishInfos()  {
 		List<FishInfoVO> result = null;
 		
-		
 		try {
 			result = fishInfoDAO.getFishInfos();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return result;
+	}
+
+
+	@Override
+	public FishInfoVO getFishInfo(FishInfoVO vo) {
+		FishInfoVO result = null;
+		result = fishInfoDAO.getFishInfo(vo);
 		return result;
 	}
 	

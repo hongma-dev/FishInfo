@@ -6,4 +6,6 @@ public interface FishInfoService {
 
 	
 	public List<FishInfoVO> getFishInfos () ;
+	
+	public FishInfoVO getFishInfo (FishInfoVO vo) ;
 }

@@ -3,29 +3,42 @@ package com.fish.hongma.fish.web;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.databind.ser.FilterProvider;
-import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
-import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
+import com.fish.hongma.fish.service.FishInfoService;
 import com.fish.hongma.fish.service.FishInfoVO;
-import com.fish.hongma.fish.service.impl.FishInfoServiceImpl;
+import com.fish.hongma.fish.service.FishKey;
 
 @RestController
 @RequestMapping(path="/fish")
 public class FishInfoController {
 
 	@Autowired
-	FishInfoServiceImpl fishInfoServiceImpl;
+	FishInfoService fishInfoService;
 	
 	@GetMapping(path="/getFishInfos")
 	public @ResponseBody List<FishInfoVO> getFishInfos() {
 		
-		List<FishInfoVO> result = fishInfoServiceImpl.getFishInfos();
+		List<FishInfoVO> result = fishInfoService.getFishInfos();
+		
+		return result;
+	}
+	
+	
+	@GetMapping(path="/getFishInfo/{fshlcNm}/{latitude}/{longitude}")
+	public @ResponseBody FishInfoVO getFishInfo(@PathVariable String fshlcNm, @PathVariable String latitude, 
+			@PathVariable String longitude) {
+		
+		FishInfoVO searchVO = new FishInfoVO();
+		searchVO.setFshlcNm(fshlcNm);
+		searchVO.setLatitude(latitude);
+		searchVO.setLongitude(longitude);
+		
+		FishInfoVO result = fishInfoService.getFishInfo(searchVO);
 		
 		return result;
 	}
