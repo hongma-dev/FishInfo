@@ -1,6 +1,13 @@
 package com.fish.hongma.fish.service.impl;
 
+import java.util.List;
 
-public class FishInfoDAO {
+import org.apache.ibatis.annotations.Mapper;
 
+import com.fish.hongma.fish.service.FishInfoVO;
+
+@Mapper
+public interface FishInfoDAO {
+	
+	public List<FishInfoVO> getFishInfos();
 }
