@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fish.hongma.fish.service.FishInfoService;
 import com.fish.hongma.fish.service.FishInfoVO;
-import com.fish.hongma.fish.service.FishKey;
 
 @RestController
 @RequestMapping(path="/fish")
